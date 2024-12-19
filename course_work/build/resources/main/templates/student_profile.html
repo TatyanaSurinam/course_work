@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль студента</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        background-color: rgba(14, 166, 221, 0.37); /* Зелёное болото */
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+<body>
+<div class="container mt-5">
+    <h1>Профиль студента</h1>
+
+    <div th:if="${student != null}">
+        <h2>Фамилия: <span th:text="${student.surname}"></span></h2>
+        <p>Имя: <span th:text="${student.name}"></span></p>
+        <p>Отчество: <span th:text="${student.patronymic}"></span></p>
+        <p>Дата рождения: <span th:text="${student.date_of_birth}"></span></p>
+        <p>Дата зачисления: <span th:text="${student.date_of_enrollment}"></span></p>
+        <p>Адрес электронной почты: <span th:text="${student.email}"></span></p>
+        <p>Группа: <span th:text="${student.studentGroup}"></span></p>
+    </div>
+
+    <div th:if="${student == null}">
+        <h2>Студент не найден.</h2>
+    </div>
+
+    <a href="/" class="btn btn-primary mt-3">Назад</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
